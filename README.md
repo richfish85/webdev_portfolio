@@ -12,6 +12,12 @@ This repository contains a modern web developer portfolio for **Richard Fisher**
 
 Open `index.html` in your browser to view the portfolio locally. No build tools or dependencies are required.
 
+## Project Showcase
+
+- **Movie App** - [GitHub Repository](https://github.com/richfish85/movie-app-001)
+
+  A simple movie database application with dynamic search functionality.
+
 ## License
 
 This project is licensed under the MIT License. See `LICENSE` for details.
