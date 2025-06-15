@@ -83,6 +83,14 @@ body {
   transition: transform 0.3s ease;
 }
 
+.project-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #ff9800;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .project-card:hover {
   transform: translateY(-5px);
 }
