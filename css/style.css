@@ -12,7 +12,7 @@ body {
 .header {
   background: #222;
   color: #fff;
-  padding: 1rem 2rem;
+  padding: 0rem 2rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -137,21 +137,35 @@ body {
   overflow: hidden;
   white-space: nowrap;
   padding: 0.5rem 0;
-  margin-top: 4rem; /* space below fixed header */
+  margin-top: 3rem; /* space below fixed header */
 }
 
 .task-marquee {
+  --speed:5s;
   display: inline-block;
-  animation: marquee 20s linear infinite;
+  animation: marquee var(--speed) linear infinite;
+  transition: --speed 0.3s ease;
 }
-
+.task-marquee:hover {
+  animation-play-state: paused;
+}
 .task-marquee span {
   display: inline-block;
   margin-right: 2rem;
   font-weight: 700;
 }
+.task-marquee span a {
+  color: #ff9800;
+  text-decoration: none;
+}
+.task-marquee span a:hover {
+  color: #b3b3b3;
+}
+.task-marquee span a:visited {
+  color: #222;
+}
 
 @keyframes marquee {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-15%); }
 }
