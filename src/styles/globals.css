@@ -1,0 +1,53 @@
+/* ─────────────────────────────────────────────
+   GLOBAL STYLES  ➜  DeepNet (Tailwind v4)
+   ───────────────────────────────────────────── */
+
+@import "tailwindcss";
+
+
+/* 1️⃣  FONT FAMILY   (IBM Plex Mono already imported in layout.tsx) */
+html { 
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; 
+}
+
+/* 2️⃣  THEME TOKENS  —  LIGHT (default) */
+:root {
+  /* blueprint light */
+  --bg:        #e7e7e7;
+  --text:      #1C1C1C;
+  --border:    #CAD9E3;
+  --accent:    #007BFF;
+
+  /* fixed terminal colours (stay same in both themes) */
+  --t-green:   #008833;
+  --t-red:     #FF5555;
+  --t-yellow:  #ff9900;
+}
+
+/* 3️⃣  THEME TOKENS  —  DARK “terminal” */
+html.dark {
+  --bg:        #0D0D0D;
+  --text:      #FAFAFA;
+  --border:    #222222;
+  --accent:    #44FF99;          /* green accent in dark mode */
+}
+
+/* 4️⃣  APPLY TOKENS GLOBALLY */
+html, body {
+  margin: 0;
+  height: 100%;
+  background-color: var(--bg);
+  color:            var(--text);
+}
+
+/* 5️⃣  MINOR RESETS (Tailwind v4 ships without Preflight) */
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+/* 6️⃣  HELPER CLASSES (Tailwind will JIT-generate these) */
+.text-terminal-text    { color: var(--text);    }
+.text-terminal-green   { color: var(--t-green); }
+.text-terminal-yellow  { color: var(--t-yellow);}
+.border-terminal-border{ border-color: var(--border); }
+.border-terminal-green { border-color: var(--t-green); }
+.bg-terminal-bg        { background-color: var(--bg); }
