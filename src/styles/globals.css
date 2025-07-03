@@ -51,3 +51,12 @@ body { margin: 0; }
 .border-terminal-border{ border-color: var(--border); }
 .border-terminal-green { border-color: var(--t-green); }
 .bg-terminal-bg        { background-color: var(--bg); }
+
+/* Blinking Cursor */
+@keyframes blink {
+  0%, 50% { opacity: 1 }
+  50.01%, 100% { opacity: 0 }
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
