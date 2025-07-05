@@ -13,10 +13,10 @@ html {
 /* 2️⃣  THEME TOKENS  —  LIGHT (default) */
 :root {
   /* blueprint light */
-  --bg:        #e7e7e7;
-  --text:      #1C1C1C;
-  --border:    #CAD9E3;
-  --accent:    #007BFF;
+  --bg:        #e0e0e0;
+  --text:      #464646;
+  --border:    #b6b6b6;
+  --accent:    #004499;
 
   /* fixed terminal colours (stay same in both themes) */
   --t-green:   #008833;
@@ -29,7 +29,7 @@ html.dark {
   --bg:        #0D0D0D;
   --text:      #FAFAFA;
   --border:    #222222;
-  --accent:    #44FF99;          /* green accent in dark mode */
+  --accent:    #449bff;          /* green accent in dark mode */
 }
 
 /* 4️⃣  APPLY TOKENS GLOBALLY */

@@ -87,12 +87,6 @@ export const commands: Record<string, CmdFn> = {
   status: () => '🟢 All systems operational.',
   ls: () =>
     `/docs\n/projects\n/labs\n/about\n/contact`,
-  cd: ([path]) => {
-    if (!path) return 'Usage: cd <route>'
-    if (!path.startsWith('/')) return 'Please use absolute path (e.g. /labs)'
-    if (typeof window !== 'undefined') window.location.href = path
-    return `Changing directory to ${path}...`
-  },
   exit: () => 'Returning to home...',
 
   // ────────────── Already handled
