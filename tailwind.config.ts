@@ -15,12 +15,15 @@ export default <Config>{
         },
         terminal: {
           /* already exists for dark mode */
-          bg:    '#0D0D0D',
-          text:  '#FAFAFA',
-          green: '#44FF99',
-          red:   '#FF5555',
-          yellow:'#FFDD57',
-          border:'#222',
+        bg: '#1e1e1e',
+        border: '#30363d',
+        text: '#c9d1d9',
+        accent: '#58a6ff',
+        green: '#56d364',
+        yellow: '#e3b341',
+        red: '#f85149',
+        purple: '#bc8cff',
+        muted: '#8b949e',
         },
       },
       fontFamily: {

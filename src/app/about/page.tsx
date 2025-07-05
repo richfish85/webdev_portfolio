@@ -1,9 +1,10 @@
-export default function AboutPage() {
+import Link from 'next/link'
+
+export default function DocsHome() {
   return (
-    <div className="p-6 font-mono text-sm">
-      <h1 className="text-lg text-[var(--accent)] mb-2">🧠 About</h1>
-      <p>Full-stack generalist. Cybersecurity explorer. Systems thinker. Ex-illustrator.</p>
-      <p>DeepNet is a living portfolio and research hub to unify code, design, and defense.</p>
+    <div>
+      <h1 className="text-lg text-[var(--accent)] mb-4">📘 Welcome to DeepNet Docs</h1>
+      <p className="text-sm mb-2">Select a section from the sidebar to begin.</p>
     </div>
   )
 }

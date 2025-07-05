@@ -5,9 +5,9 @@
 @import "tailwindcss";
 
 
-/* 1️⃣  FONT FAMILY   (IBM Plex Mono already imported in layout.tsx) */
+/* 1️⃣  FONT FAMILY */
 html { 
-  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; 
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ui-monospace, SFMono-Regular, monospace; 
 }
 
 /* 2️⃣  THEME TOKENS  —  LIGHT (default) */
@@ -26,20 +26,29 @@ html {
 
 /* 3️⃣  THEME TOKENS  —  DARK “terminal” */
 html.dark {
-  --bg:        #0D0D0D;
-  --text:      #FAFAFA;
-  --border:    #222222;
-  --accent:    #449bff;          /* green accent in dark mode */
+   --bg:        #010409;;
+   --panel:    #0d1117;
+  --text:      #c9d1d9;
+  --border:    #30363d;
+  --accent:    #58a6ff;
+  --green:     #56d364;
+  --red:       #f85149;
+  --yellow:    #e3b341;
+  --purple:    #bc8cff;
+  --muted:     #8b949e;
+  --selected: #2d3139;
 }
 
 /* 4️⃣  APPLY TOKENS GLOBALLY */
 html, body {
   margin: 0;
-  height: 100%;
+  max-height: 100%;
   background-color: var(--bg);
   color:            var(--text);
 }
-
+body {
+  @apply flex flex-col min-h-screen;  /* root flex-column */
+}
 /* 5️⃣  MINOR RESETS (Tailwind v4 ships without Preflight) */
 * { box-sizing: border-box; }
 body { margin: 0; }
@@ -59,4 +68,8 @@ body { margin: 0; }
 }
 .cursor-blink {
   animation: blink 1s step-end infinite;
+}
+
+a {
+  @apply px-2 py-1 rounded-sm transition hover:bg-[var(--accent)] hover:text-[var(--bg)];
 }

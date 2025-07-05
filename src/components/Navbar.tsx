@@ -5,8 +5,8 @@ export default function Navbar() {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <nav className="w-full border-b-2 border-dashed border-[var(--border)] p-4 flex justify-between items-center font-mono text-[var(--text)] bg-[var(--bg)]">
-      <div className="text-[var(--accent)] text-2xl">[ Richard Fisher ]</div>
+    <nav className="w-full border-b border-[var(--border)] p-4 flex justify-between items-center font-mono text-[var(--text)] bg-[var(--bg)]">
+      <div className="text-[var(--accent)] text-2xl">Richard Fisher</div>
       <div className="space-x-4 text-sm">
         <a href="#docs" className="hover:text-[var(--accent)]">Docs</a>
         <a href="#projects" className="hover:text-[var(--accent)]">Projects</a>
