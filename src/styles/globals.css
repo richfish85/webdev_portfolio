@@ -42,12 +42,12 @@ html.dark {
 /* 4️⃣  APPLY TOKENS GLOBALLY */
 html, body {
   margin: 0;
-  max-height: 100%;
+  max-height: 100vh;
   background-color: var(--bg);
   color:            var(--text);
 }
 body {
-  @apply flex flex-col min-h-screen;  /* root flex-column */
+  @apply flex flex-col max-h-screen;  /* root flex-column */
 }
 /* 5️⃣  MINOR RESETS (Tailwind v4 ships without Preflight) */
 * { box-sizing: border-box; }
