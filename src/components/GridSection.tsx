@@ -1,31 +1,62 @@
 import SectionBox from "./SectionBox";
 import { FaFolder, FaTerminal, FaTools, FaBrain, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineKey } from "react-icons/hi";
+import { projects } from "@/lib/projects";
+import Link from "next/link";
 
 export default function GridSection() {
   return (
-    <section className="p-6 md:p-20 border-b border-[var(--border)] bg-[var(--bg)]">
+    <section className="p-2 md:p-2 border-b border-[var(--border)] bg-[var(--bg)]">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
         {/* Column 1: Current Ops */}
         <SectionBox title="Current Ops">
-          <ul className="space-y-1">
-            <li><FaFolder className="inline mr-2 text-yellow-500" /> <strong>KernelCoder</strong> — bash sandbox</li>
-                          <a href="#" className="text-[var(--accent)] hover:underline text-xs">Website</a> · 
-              <a href="#" className="text-[var(--accent)] hover:underline text-xs ml-1">GitHub</a>
-            <li><FaFolder className="inline mr-2 text-yellow-500" /> <strong>Nimbus</strong> — private cloud suite<br />
-              <a href="#" className="text-[var(--accent)] hover:underline text-xs">Website</a> · 
-              <a href="#" className="text-[var(--accent)] hover:underline text-xs ml-1">GitHub</a>
-            </li>
-            <li><FaFolder className="inline mr-2 text-yellow-500" /> <strong>Deepnet Solutions</strong> — training platform</li>
-                          <a href="#" className="text-[var(--accent)] hover:underline text-xs">Website</a> · 
-              <a href="#" className="text-[var(--accent)] hover:underline text-xs ml-1">GitHub</a>
-            <li><FaFolder className="inline mr-2 text-yellow-500" /> <strong>TheReelDeal</strong> — movie catalog</li>
-                          <a href="#" className="text-[var(--accent)] hover:underline text-xs">Website</a> · 
-              <a href="#" className="text-[var(--accent)] hover:underline text-xs ml-1">GitHub</a>
-            <li><FaFolder className="inline mr-2 text-yellow-500" /> <strong>RedOcean</strong> — OSINT sim</li>
-                          <a href="#" className="text-[var(--accent)] hover:underline text-xs">Website</a> · 
-              <a href="#" className="text-[var(--accent)] hover:underline text-xs ml-1">GitHub</a>
+          <ul className="space-y-4">
+            {projects.map((project) => (
+              <li
+                key={project.name}
+                className="flex flex-col gap-1 border border-terminal-border p-3 rounded-sm bg-[var(--panel)] shadow-sm"
+              >
+                <div className="flex items-center gap-2 text-sm leading-tight tracking-tight">
+                  <FaFolder className="text-yellow-500 flex-shrink-0" />
+                  <strong title={project.description}>
+                    {project.name}
+                  </strong>
+                </div>
+
+                <div className="flex flex-wrap gap-2 justify-end mt-1">
+                  {project.website !== "#" && (
+                    <a
+                      href={project.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-2 py-0.5 text-xs border border-[var(--accent)] text-[var(--accent)] rounded-sm hover:bg-[var(--accent)] hover:text-[var(--bg)] transition"
+                    >
+                      🌐 Website
+                    </a>
+                  )}
+                  {project.github !== "#" && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-2 py-0.5 text-xs border border-[var(--accent)] text-[var(--accent)] rounded-sm hover:bg-[var(--accent)] hover:text-[var(--bg)] transition"
+                    >
+                      💻 GitHub
+                    </a>
+                  )}
+                  
+                </div>
+              </li>
+            ))}
           </ul>
+
+          <Link
+            href="/projects"
+            className="text-xs text-[var(--accent)] hover:underline mt-3 block"
+          >
+            → View all projects
+          </Link>
         </SectionBox>
 
         {/* Column 2: Threat Labs / Sandbox */}

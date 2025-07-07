@@ -1,35 +1,46 @@
 export const projects = [
   {
-    slug: "kernelcoder",
+    name: "The Reel Deal",
+    type: "World Movie Info database",
+    wip: false,
+    description: " a movie exploration platform that helps users browse, search, and explore detailed information on films using an intuitive interface.",
+    tags: ["WebApp", "FullStack", "Supabase", "API", "JavaScript", "Tailwindcss"],
+    website: "https://movie.dev.deepnet.com.au/",
+    github: "https://github.com/richfish85/movie-app-001",
+  },
+  {
+    name: "DeepNet Website",
+    type: "Business Landing Page",
+    wip: false,
+    description: "A responsive website for DeepNet Solutions, a cybersecurity company.",
+    tags: ["Linux", "API", "Cybersecurity", "Vite", "Tailwindcss"],
+    website: "https://www.deepnet.com.au/",
+    github: "https://github.com/richfish85/deepnet-website",
+  },  
+  {
     name: "KernelCoder",
     type: "CLI Sandbox",
+    wip: true,
     description: "A live Bash playground for practicing Linux commands safely.",
     tags: ["Linux", "Security", "Sandbox"],
-    longDescription: `
-KernelCoder is a terminal-style web app simulating a Linux environment.
-It includes real-time CLI feedback, fake system errors, and interactive walkthroughs for users new to Linux command-line workflows.
-
-Includes:
-- Bash command interpreter
-- Simulated ` + "`man`, `ls`, `nano`" + ` commands
-- Auto-reset sandbox session
-- Styled like classic CRT terminals.`,
     website: "#",
     github: "#",
   },
   {
-    slug: "nimbus",
     name: "Nimbus",
     type: "Cloud Suite",
+    wip: false,
     description: "A private cloud toolkit with encrypted storage and deployment dashboard.",
-    tags: ["Cloud", "Encryption", "React"],
-    longDescription: `
-Nimbus provides a full-stack deployment environment for self-hosted apps.
-It includes:
-- S3-compatible object storage
-- Encrypted backup workflows
-- Web UI + CLI access
-    `,
+    tags: ["Cloud", "Encryption", "React", "Supabase", "TypeScript"],
+    website: "https://nimbus.dev.deepnet.com.au/",
+    github: "https://github.com/richfish85/nimbus",
+  },
+  {
+    name: "RedOcean",
+    type: "OSINT Simulator",
+    wip: true,
+    description: "A fictional intelligence-gathering sim for teaching cyber investigation flow.",
+    tags: ["OSINT", "Training", "Simulation"],
     website: "#",
     github: "#",
   },

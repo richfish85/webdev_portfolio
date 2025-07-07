@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <section className="bg-[var(--panel)] text-[var(--text)] font-mono py-12 px-6 md:px-20 border-b border-[var(--border)]">
+    <section className="bg-[var(--panel)] text-[var(--text)] font-mono py-25 px-6 md:px-25 border-b border-[var(--border)]">
       <header>
         <h1 className="text-2xl md:text-3xl text-[var(--text)] mb-2">
           Cybersecurity && Interface Design
