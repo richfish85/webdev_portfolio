@@ -1,71 +1,73 @@
-import Link from 'next/link'
+import Link from "next/link";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
-const Project = ({
-  title,
-  summary,
-  tags,
-  links,
-}: {
-  title: string
-  summary: string
-  tags: string[]
-  links: { label: string; url: string }[]
-}) => (
-  <div className="border border-[var(--border)] p-4 mb-4">
-    <h2 className="text-[var(--accent)] text-lg mb-1">{title}</h2>
-    <p className="mb-2 text-sm">{summary}</p>
-    <div className="text-xs text-[var(--accent)] mb-2">{tags.join(' · ')}</div>
-    <div className="space-x-2 text-sm">
-      {links.map((l, i) => (
-        <Link key={i} href={l.url} className="underline hover:text-[var(--text)]">
-          {l.label}
-        </Link>
-      ))}
-    </div>
-  </div>
-)
+const projects = [
+  {
+    name: "KernelCoder",
+    type: "CLI Sandbox",
+    description: "A live Bash playground for practicing Linux commands safely.",
+    tags: ["Linux", "Security", "Sandbox"],
+    website: "#",
+    github: "#",
+  },
+  {
+    name: "Nimbus",
+    type: "Cloud Suite",
+    description: "A private cloud toolkit with encrypted storage and deployment dashboard.",
+    tags: ["Cloud", "Encryption", "React"],
+    website: "#",
+    github: "#",
+  },
+  {
+    name: "RedOcean",
+    type: "OSINT Simulator",
+    description: "A fictional intelligence-gathering sim for teaching cyber investigation flow.",
+    tags: ["OSINT", "Training", "Simulation"],
+    website: "#",
+    github: "#",
+  },
+];
 
 export default function ProjectsPage() {
   return (
-    <div className="p-6 font-mono text-sm max-w-3xl">
-      <h1 className="text-lg text-[var(--accent)] mb-4">📁 Projects</h1>
-
-      <Project
-        title="KernelCoder"
-        summary="A browser-based bash terminal for learning command-line basics and scripting. Supports command routing and simulated output."
-        tags={['TypeScript', 'React', 'CLI emulator', 'Cybersecurity']}
-        links={[
-          { label: 'GitHub', url: 'https://github.com/richfish85/kernelcoder' },
-        ]}
-      />
-
-      <Project
-        title="Nimbus"
-        summary="Self-hostable private cloud storage with secure user auth and file versioning. Built as a proof-of-concept for portfolio SaaS."
-        tags={['Next.js', 'Tailwind', 'Cloud Storage', 'JWT']}
-        links={[
-          { label: 'GitHub', url: 'https://github.com/richfish85/nimbus' },
-          { label: 'Live Site', url: 'https://nimbus.dev.deepnet.com.au' },
-        ]}
-      />
-
-      <Project
-        title="The Reel Deal"
-        summary="A smart movie catalog app using TMDb API. Includes search, favorites, and responsive UI. Designed for showcase."
-        tags={['React', 'REST API', 'UI Design']}
-        links={[
-          { label: 'GitHub', url: 'https://github.com/richfish85/movie-app-001' },
-        ]}
-      />
-
-      <Project
-        title="RedOcean"
-        summary="Narrative OSINT sim exploring identity, threat modelling, and sociotechnical systems. Built as part of a fictional cybercrime anthology."
-        tags={['Fiction', 'Cybersecurity', 'Worldbuilding', 'JS']}
-        links={[
-          { label: 'Story Page', url: '/redocean' },
-        ]}
-      />
-    </div>
-  )
+    <main className="min-h-screen px-6 py-10 bg-[var(--bg)] text-[var(--text)] font-mono">
+      <h1 className="text-xl text-[var(--accent)] mb-6">💼 Projects</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        {projects.map((project, i) => (
+          <div
+            key={i}
+            className="border border-terminal-border bg-[var(--panel)] p-4 rounded-sm flex flex-col gap-2 shadow-sm hover:shadow-md transition"
+          >
+            <div>
+              <h2 className="text-[var(--accent)] font-semibold text-base">
+                {project.name}
+              </h2>
+              <p className="text-xs text-[var(--muted)]">{project.type}</p>
+            </div>
+            <p className="text-sm">{project.description}</p>
+            <div className="flex flex-wrap gap-2 mt-auto">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-2 py-0.5 text-xs bg-[var(--bg)] border border-[var(--border)] rounded"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div className="flex gap-4 mt-2 text-xs">
+              <Link href={project.website} className="flex items-center gap-1 hover:underline">
+                <FaExternalLinkAlt className="text-[var(--accent)]" />
+                Live
+              </Link>
+              <Link href={project.github} className="flex items-center gap-1 hover:underline">
+                <FaGithub className="text-[var(--accent)]" />
+                GitHub
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </main>
+  );
 }

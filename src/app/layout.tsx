@@ -1,7 +1,8 @@
-import "./../styles/globals.css";
-import { ThemeProvider } from '../components/ThemeProvider'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import Navbar from "@/components/Navbar"
+import Footer from "@/components/Footer"
+import TerminalPanel from "@/components/TerminalPanel"
+import { ThemeProvider } from "@/components/ThemeProvider";
+import "@/styles/globals.css";
 
 export const metadata = {
   title: 'DeepNet',
@@ -12,15 +13,18 @@ export const metadata = {
 }
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        <Navbar />
-        {/* flex-1 lets the middle stretch, while nav & footer stay fixed height */}
+    <html lang="en">
+      <body className="bg-[var(--bg)] text-[var(--text)] font-mono flex flex-col min-h-screen pb-12">
         <ThemeProvider>
-          <main className="flex-1 overflow-auto">{children}</main>
+          <Navbar />
+          <main className="flex-1">
+          {children}
+          </main>
+          <Footer />
+          <TerminalPanel />
         </ThemeProvider>
-        <Footer />
       </body>
     </html>
   );
 }
+

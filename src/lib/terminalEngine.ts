@@ -65,7 +65,7 @@ export const commands: Record<string, CmdFn> = {
 📁 Nimbus        — private cloud suite (MVP in progress)
 📁 ReelDeal      — smart movie catalog
 📁 RedOcean      — OSINT training sim`,
-  docs: () => 'View documentation at: /docs',
+
 
   // ────────────── Simulated Cyber Tools
   scan: () => `Scanning 127.0.0.1...\nOpen ports: 22 80 443`,
