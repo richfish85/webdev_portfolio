@@ -1,10 +1,18 @@
+// app/projects/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 
-export default function ProjectDetail({ params }: { params: { slug: string } }) {
-  const project = projects.find((p) => p.slug === params.slug);
+type PageProps = {
+  // Note the Promise wrapper 👇
+  params: Promise<{ slug: string }>;
+};
 
+export default async function ProjectDetail({ params }: PageProps) {
+  // unwrap the async params
+  const { slug } = await params;
+
+  const project = projects.find((p) => p.slug === slug);
   if (!project) return notFound();
 
   return (
@@ -15,16 +23,34 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
 
       <div className="flex flex-wrap gap-2 mb-6">
         {project.tags.map((tag) => (
-          <span key={tag} className="px-2 py-0.5 text-xs bg-[var(--bg)] border border-[var(--border)] rounded">
+          <span
+            key={tag}
+            className="px-2 py-0.5 text-xs bg-[var(--bg)] border border-[var(--border)] rounded"
+          >
             {tag}
           </span>
         ))}
       </div>
 
       <div className="flex gap-4 text-xs">
-        <Link href={project.website} className="hover:underline text-[var(--accent)]">🌐 Live Demo</Link>
-        <Link href={project.github} className="hover:underline text-[var(--accent)]">💻 GitHub Repo</Link>
-        <Link href="/projects" className="ml-auto hover:underline text-[var(--muted)]">← Back to Projects</Link>
+        <Link
+          href={project.website}
+          className="hover:underline text-[var(--accent)]"
+        >
+          🌐 Live Demo
+        </Link>
+        <Link
+          href={project.github}
+          className="hover:underline text-[var(--accent)]"
+        >
+          💻 GitHub Repo
+        </Link>
+        <Link
+          href="/projects"
+          className="ml-auto hover:underline text-[var(--muted)]"
+        >
+          ← Back to Projects
+        </Link>
       </div>
     </main>
   );
