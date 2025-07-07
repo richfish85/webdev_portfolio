@@ -13,6 +13,7 @@ export default function Navbar() {
 
       {/* Right: Links + Theme Toggle */}
       <div className="flex items-center gap-4 text-sm font-mono">
+        <Link href="/docs" className="hover:text-[var(--accent)] transition">Docs</Link>
         <Link href="/projects" className="hover:text-[var(--accent)] transition">Projects</Link>
         <Link href="/about" className="hover:text-[var(--accent)] transition">About</Link>
         <Link href="/contact" className="hover:text-[var(--accent)] transition">Contact</Link>

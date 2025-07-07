@@ -3,6 +3,22 @@ import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const projects = [
   {
+    name: "The Reel Deal",
+    type: "World Movie Info database",
+    description: " a movie exploration platform that helps users browse, search, and explore detailed information on films using an intuitive interface.",
+    tags: ["WebApp", "FullStack", "Supabase", "API", "JavaScript", "Tailwindcss"],
+    website: "https://movie.dev.deepnet.com.au/",
+    github: "https://github.com/richfish85/movie-app-001",
+  },
+  {
+    name: "DeepNet Website",
+    type: "Business Landing Page",
+    description: "A responsive website for DeepNet Solutions, a cybersecurity company.",
+    tags: ["Linux", "API", "Cybersecurity", "Vite", "Tailwindcss"],
+    website: "https://www.deepnet.com.au/",
+    github: "https://github.com/richfish85/deepnet-website",
+  },  
+  {
     name: "KernelCoder",
     type: "CLI Sandbox",
     description: "A live Bash playground for practicing Linux commands safely.",
@@ -14,9 +30,9 @@ const projects = [
     name: "Nimbus",
     type: "Cloud Suite",
     description: "A private cloud toolkit with encrypted storage and deployment dashboard.",
-    tags: ["Cloud", "Encryption", "React"],
-    website: "#",
-    github: "#",
+    tags: ["Cloud", "Encryption", "React", "Supabase", "TypeScript"],
+    website: "https://nimbus.dev.deepnet.com.au/",
+    github: "https://github.com/richfish85/nimbus",
   },
   {
     name: "RedOcean",
