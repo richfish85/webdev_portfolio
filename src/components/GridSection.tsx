@@ -1,31 +1,63 @@
 import SectionBox from "./SectionBox";
 import { FaFolder, FaTerminal, FaTools, FaBrain, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineKey } from "react-icons/hi";
+import { projects } from "@/lib/projects";
+import Link from "next/link";
 
 export default function GridSection() {
   return (
-    <section className="p-6 md:p-20 border-b border-[var(--border)] bg-[var(--bg)]">
+    <section className="p-2 md:p-2 border-b border-[var(--border)] bg-[var(--bg)]">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
         {/* Column 1: Current Ops */}
         <SectionBox title="Current Ops">
-          <ul className="space-y-1">
-            <li><FaFolder className="inline mr-2 text-yellow-500" /> <strong>KernelCoder</strong> — bash sandbox</li>
-                          <a href="#" className="text-[var(--accent)] hover:underline text-xs">Website</a> · 
-              <a href="#" className="text-[var(--accent)] hover:underline text-xs ml-1">GitHub</a>
-            <li><FaFolder className="inline mr-2 text-yellow-500" /> <strong>Nimbus</strong> — private cloud suite<br />
-              <a href="#" className="text-[var(--accent)] hover:underline text-xs">Website</a> · 
-              <a href="#" className="text-[var(--accent)] hover:underline text-xs ml-1">GitHub</a>
-            </li>
-            <li><FaFolder className="inline mr-2 text-yellow-500" /> <strong>Deepnet Solutions</strong> — training platform</li>
-                          <a href="#" className="text-[var(--accent)] hover:underline text-xs">Website</a> · 
-              <a href="#" className="text-[var(--accent)] hover:underline text-xs ml-1">GitHub</a>
-            <li><FaFolder className="inline mr-2 text-yellow-500" /> <strong>TheReelDeal</strong> — movie catalog</li>
-                          <a href="#" className="text-[var(--accent)] hover:underline text-xs">Website</a> · 
-              <a href="#" className="text-[var(--accent)] hover:underline text-xs ml-1">GitHub</a>
-            <li><FaFolder className="inline mr-2 text-yellow-500" /> <strong>RedOcean</strong> — OSINT sim</li>
-                          <a href="#" className="text-[var(--accent)] hover:underline text-xs">Website</a> · 
-              <a href="#" className="text-[var(--accent)] hover:underline text-xs ml-1">GitHub</a>
+          <ul className="space-y-3 text-sm">
+            {projects.map((p) => (
+              <li key={p.slug}>
+                <FaFolder className="inline mr-2 text-yellow-500" />
+                <strong>
+                  <Link
+                    href={`/projects/${p.slug}`}
+                    className="hover:underline"
+                  >
+                    {p.name}
+                  </Link>
+                </strong>{" "}
+                — {p.type}
+                <br />
+                {p.website !== "#" && (
+                  <a
+                    href={p.website}
+                    className="text-[var(--accent)] hover:underline text-xs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Website
+                  </a>
+                )}
+                {p.website !== "#" && p.github !== "#" && (
+                  <span className="text-xs mx-1">·</span>
+                )}
+                {p.github !== "#" && (
+                  <a
+                    href={p.github}
+                    className="text-[var(--accent)] hover:underline text-xs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                )}
+              </li>
+            ))}
           </ul>
+
+          <Link
+            href="/projects"
+            className="text-xs text-[var(--accent)] hover:underline mt-3 inline-block"
+          >
+            → View all projects
+          </Link>
         </SectionBox>
 
         {/* Column 2: Threat Labs / Sandbox */}

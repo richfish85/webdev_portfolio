@@ -1,6 +1,6 @@
 export default function ContactPage() {
   return (
-    <div className="p-6 font-mono text-sm">
+    <div className="font-mono text-sm m-20">
       <h1 className="text-lg text-[var(--accent)] mb-2">📨 Contact</h1>
       <ul className="space-y-1">
         <li>📧 staff@deepnet.com.au</li>

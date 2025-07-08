@@ -14,8 +14,9 @@ html {
 :root {
   /* blueprint light */
   --bg:        #e0e0e0;
-   --panel:     #f5f5f5; 
+  --panel:     #f5f5f5; 
   --text:      #464646;
+  --darktext:  #1d1d1d;
   --border:    #b6b6b6;
   --accent:    #004499;
 
@@ -30,6 +31,7 @@ html.dark {
    --bg:        #010409;;
    --panel:    #0d1117;
   --text:      #c9d1d9;
+  --darktext:  #090c10;
   --border:    #30363d;
   --accent:    #58a6ff;
   --green:     #56d364;
@@ -49,6 +51,9 @@ html, body {
 }
 body {
   @apply flex flex-col max-h-screen;  /* root flex-column */
+}
+.group:hover .group-hover\:underline {
+  text-decoration: underline;
 }
 /* 5️⃣  MINOR RESETS (Tailwind v4 ships without Preflight) */
 * { box-sizing: border-box; }
