@@ -52,6 +52,9 @@ html, body {
 body {
   @apply flex flex-col max-h-screen;  /* root flex-column */
 }
+.group:hover .group-hover\:underline {
+  text-decoration: underline;
+}
 /* 5️⃣  MINOR RESETS (Tailwind v4 ships without Preflight) */
 * { box-sizing: border-box; }
 body { margin: 0; }

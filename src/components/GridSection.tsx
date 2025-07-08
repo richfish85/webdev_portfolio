@@ -11,49 +11,50 @@ export default function GridSection() {
         
         {/* Column 1: Current Ops */}
         <SectionBox title="Current Ops">
-          <ul className="space-y-4">
-            {projects.map((project) => (
-              <li
-                key={project.name}
-                className="flex flex-col gap-1 border border-terminal-border p-3 rounded-sm bg-[var(--panel)] shadow-sm"
-              >
-                <div className="flex items-center gap-2 text-sm leading-tight tracking-tight">
-                  <FaFolder className="text-yellow-500 flex-shrink-0" />
-                  <strong title={project.description}>
-                    {project.name}
-                  </strong>
-                </div>
-
-                <div className="flex flex-wrap gap-2 justify-end mt-1">
-                  {project.website !== "#" && (
-                    <a
-                      href={project.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-2 py-0.5 text-xs border border-[var(--accent)] text-[var(--accent)] rounded-sm hover:bg-[var(--accent)] hover:text-[var(--bg)] transition"
-                    >
-                      🌐 Website
-                    </a>
-                  )}
-                  {project.github !== "#" && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-2 py-0.5 text-xs border border-[var(--accent)] text-[var(--accent)] rounded-sm hover:bg-[var(--accent)] hover:text-[var(--bg)] transition"
-                    >
-                      💻 GitHub
-                    </a>
-                  )}
-                  
-                </div>
+          <ul className="space-y-3 text-sm">
+            {projects.map((p) => (
+              <li key={p.slug}>
+                <FaFolder className="inline mr-2 text-yellow-500" />
+                <strong>
+                  <Link
+                    href={`/projects/${p.slug}`}
+                    className="hover:underline"
+                  >
+                    {p.name}
+                  </Link>
+                </strong>{" "}
+                — {p.type}
+                <br />
+                {p.website !== "#" && (
+                  <a
+                    href={p.website}
+                    className="text-[var(--accent)] hover:underline text-xs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Website
+                  </a>
+                )}
+                {p.website !== "#" && p.github !== "#" && (
+                  <span className="text-xs mx-1">·</span>
+                )}
+                {p.github !== "#" && (
+                  <a
+                    href={p.github}
+                    className="text-[var(--accent)] hover:underline text-xs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                )}
               </li>
             ))}
           </ul>
 
           <Link
             href="/projects"
-            className="text-xs text-[var(--accent)] hover:underline mt-3 block"
+            className="text-xs text-[var(--accent)] hover:underline mt-3 inline-block"
           >
             → View all projects
           </Link>
