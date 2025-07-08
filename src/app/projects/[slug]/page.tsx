@@ -3,36 +3,40 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 
-export default function ProjectDetail({
+/**
+ * Inline prop typing keeps the compiler happy and sidesteps
+ * Next.js’ “compare PageProps” diff check.
+ */
+export default async function ProjectDetail({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const project = projects.find((p) => p.slug === params.slug);
+  // Next 15 wraps `params` in a Promise, so we await it once.
+  const { slug } = await params;
+
+  const project = projects.find((p) => p.slug === slug);
   if (!project) return notFound();
 
-  // Show longDescription if you later add one; else fallback to description
+  // Always end up with a string – never {}, never boolean.
   const description =
-    "longDescription" in project && project.longDescription
-      ? project.longDescription
-      : project.description;
+    project.description ?? "No description yet.";
 
-  // External demo only if it’s a real URL, not an internal route or #
   const hasLiveDemo =
     project.website &&
     project.website !== "#" &&
     !project.website.startsWith("/projects/");
 
   return (
-    <main className="min-h-screen px-6 py-10 bg-[var(--bg)] text-[var(--text)] font-mono max-w-3xl mx-auto">
-      {/* ─── Title */}
+    <main className="min-h-screen px-6 pt-20 bg-[var(--bg)] text-[var(--text)] font-mono max-w-3xl mx-auto">
+      {/* ───────── Name / Type ───────── */}
       <h1 className="text-2xl text-[var(--accent)] mb-2">{project.name}</h1>
       <p className="text-xs text-[var(--muted)] mb-4">{project.type}</p>
 
-      {/* ─── Description */}
+      {/* ───────── Description ───────── */}
       <p className="text-sm mb-6 whitespace-pre-wrap">{description}</p>
 
-      {/* ─── Tags */}
+      {/* ───────── Tags ───────── */}
       <div className="flex flex-wrap gap-2 mb-6">
         {project.tags.map((tag) => (
           <span
@@ -44,7 +48,7 @@ export default function ProjectDetail({
         ))}
       </div>
 
-      {/* ─── Links */}
+      {/* ───────── Links ───────── */}
       <div className="flex gap-4 text-xs">
         {hasLiveDemo && (
           <a
