@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import "@/styles/globals.css";
 
 export const metadata = {
-  title: 'DeepNet',
+  title: 'Richard Fisher - Software Development & Cybersecurity Portfolio',
   description: 'Terminal-style cybersecurity portfolio',
   icons: {
     icon: '/favicon.png',  // or use '/my-icon.png'
