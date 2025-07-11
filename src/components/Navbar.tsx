@@ -8,7 +8,7 @@ export default function Navbar() {
     <nav className="fixed w-full flex items-center justify-between px-6 py-3 border-b border-terminal-border bg-terminal-bg text-terminal-text">
       {/* Left: Logo / Title */}
       <Link href="/" className="font-mono text-lg font-semibold text-[var(--accent)]">
-        DeepNet Solutions
+        Richard Fisher
       </Link>
 
       {/* Right: Links + Theme Toggle */}
