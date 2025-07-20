@@ -5,8 +5,8 @@ export default function ContactPage() {
       <ul className="space-y-1">
         {/* <li>📧 staff@deepnet.com.au</li> */}
         <li>📧 richfish85@gmail.com</li>
-        <li>🐙 <a href="https://github.com/richfish85">GitHub</a></li>
-        <li>🔗 <a href="https://www.linkedin.com/in/richard-fisher-824439177/">LinkedIn</a></li>
+        <li>🐙 <a href="https://github.com/richfish85" target="_blank">GitHub</a></li>
+        <li>🔗 <a href="https://www.linkedin.com/in/richard-fisher-824439177/" target="_blank">LinkedIn</a></li>
         <li>🔐 PGP Key Available</li>
       </ul>
     </div>

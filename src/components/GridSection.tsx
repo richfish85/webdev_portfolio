@@ -3,6 +3,7 @@ import { FaFolder, FaTerminal, FaTools, FaBrain, FaEnvelope, FaGithub, FaLinkedi
 import { HiOutlineKey } from "react-icons/hi";
 import { projects } from "@/lib/projects";
 import Link from "next/link";
+import { contacts } from "@/lib/contacts";
 
 export default function GridSection() {
   return (
@@ -73,9 +74,9 @@ export default function GridSection() {
         <SectionBox title="About / Contact">
           <p className="text-xs mb-3">Full-stack generalist · cybersec learner · ex-illustrator.</p>
           <ul className="space-y-1 text-xs">
-            <li><FaEnvelope className="inline mr-2" /> <a href="mailto:staff@deepnet.com.au" className="hover:underline">staff@deepnet.com.au</a></li>
-            <li><FaGithub className="inline mr-2" /> <a href="https://github.com/roosdy" target="_blank" rel="noreferrer" className="hover:underline">github.com/roosdy</a></li>
-            <li><FaLinkedin className="inline mr-2" /> <a href="https://linkedin.com/in/roosdy" target="_blank" rel="noreferrer" className="hover:underline">linkedin.com/in/roosdy</a></li>
+            <li><FaEnvelope className="inline mr-2" /> Email: <a href="mailto:staff@deepnet.com.au" className="hover:underline">{contacts[0].emailAddress}</a></li>
+            <li><FaGithub className="inline mr-2" /> GitHub: <a href={contacts[0].github} target="_blank" rel="noreferrer" className="hover:underline">{contacts[0].github.replace("https://github.com/", "")}</a></li>
+            <li><FaLinkedin className="inline mr-2" /> LinkedIn: <a href={contacts[0].socialMedia2} target="_blank" rel="noreferrer" className="hover:underline">{contacts[0].socialMedia2.replace("https://www.linkedin.com/in/", "")}</a></li>
             <li><HiOutlineKey className="inline mr-2" /> PGP key available</li>
           </ul>
         </SectionBox>
