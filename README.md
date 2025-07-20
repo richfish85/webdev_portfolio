@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web Developer Portfolio
+
+This repository contains my personal portfolio website built with [Next.js](https://nextjs.org). The site highlights my web development projects, shares technical articles, and provides contact information.
 
 ## Getting Started
 
